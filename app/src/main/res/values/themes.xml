@@ -1,0 +1,29 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme1.Gepgep" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/back</item>
+        <item name="colorPrimaryVariant">@color/back</item>
+        <item name="colorOnPrimary">@color/skin_1</item>
+        <item name="android:textColorPrimary">@color/text</item>
+
+
+        <item name="custom_skin">@color/skin_1</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+        <item name="android:windowBackground">@color/back</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme2.Gepgep" parent="Theme1.Gepgep">
+        <item name="custom_skin">@color/skin_2</item>
+    </style>
+
+
+    <style name="Theme3.Gepgep" parent="Theme1.Gepgep">
+        <item name="custom_skin">@color/skin_3</item>
+    </style>
+
+    <style name="Theme.Gepgep.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.Gepgep.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

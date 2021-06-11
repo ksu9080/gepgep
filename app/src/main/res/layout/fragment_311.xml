@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#EEEEEE"
+    tools:context=".Fragment311">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/preView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:text="이전"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.6"
+            android:gravity="center"
+            android:text="블루투스"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2" />
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.9"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_marginVertical="40dp"
+                android:text="점자 라벨지를 출력하고 싶나요? 라벨 출력기와 연결하기 위해 페어링 과정이 필요하답니다. 페어링 연결을 하고 연결을 끊는 방법을 배우러 가볼까요?" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round22line_30"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:paddingHorizontal="75dp"
+                android:paddingVertical="12dp"
+                android:layout_gravity="center"
+                android:layout_margin="12dp"
+                android:text="블루투스 연결하는 방법" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:text="1. 스마트폰에서 블루투스를 켭니다. \n2. 동글이 앱을 열면 첫페이지가 나타납니다. 동글이 하부에 위치한 페어링, 만들기, 설정 중 가장 왼쪽에 위치한 페어링 버튼을 선택합니다. \n3. 화면 중앙에 위치한 페어링 버튼을 클릭하시면 블루투스 연결 화면이 나타납니다. \n4. 블루투스 연결이 성공적으로 완료되면 화면 중앙에 연결된 기기 이름이 나타나고 버튼 색상이 바뀝니다. 블루투스 연력에 실패하면 아무 변화가 일어나지 않습니다." />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round22line_30"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:paddingHorizontal="75dp"
+                android:paddingVertical="12dp"
+                android:layout_gravity="center"
+                android:layout_margin="12dp"
+                android:text="블루투스 연결을 끊는 방법" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:text="1. 화면 중앙에 위치한 페어링 버튼을 클릭하시면 블루투스 연결 화면이 나타납니다. \n2. 블루투스 연결 화면에서 블루투스 연결을 해지합니다." />
+
+
+        </LinearLayout>
+</LinearLayout>

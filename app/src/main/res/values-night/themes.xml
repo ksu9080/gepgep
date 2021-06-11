@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme1.Gepgep" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/back</item>
+        <item name="colorPrimaryVariant">@color/back</item>
+        <item name="colorOnPrimary">@color/skin_1</item>
+        <item name="android:textColorPrimary">@color/text</item>
+
+
+        <item name="custom_skin">@color/skin_1</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+        <item name="android:windowBackground">@color/back</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+</resources>
