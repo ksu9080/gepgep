@@ -1,9 +1,13 @@
 package com.example.gepgep;
 
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.provider.Settings;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.Spanned;
@@ -13,7 +17,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.databinding.DataBindingUtil;
@@ -24,6 +30,7 @@ import com.example.gepgep.databinding.Fragment22Binding;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 import app.akexorcist.bluetotohspp.library.BluetoothSPP;
@@ -32,6 +39,7 @@ import app.akexorcist.bluetotohspp.library.BluetoothSPP;
 public class Fragment22 extends Fragment {
     private Fragment22Binding binding;
     private BluetoothSPP bluetoothSPP;
+
 
     private int on_off_chk = 0;
     private int img[] = {R.drawable.d0, R.drawable.d1, R.drawable.d2, R.drawable.d3, R.drawable.d4, R.drawable.d5, R.drawable.d6, R.drawable.d7,
@@ -240,17 +248,10 @@ public class Fragment22 extends Fragment {
                     }
                 }
 
+//                ConnectedThread connectedThread = new ConnectedThread(BluetoothManager.getInstance());
 
-                bluetoothSPP.setupService(); // setup bluetooth service
-                bluetoothSPP.startService(true); // start bluetooth service
-                if (!bluetoothSPP.isBluetoothAvailable()) {
-                    Toast.makeText(getContext(), "don't have bluetooth", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (!bluetoothSPP.isBluetoothEnabled()) {
-                    bluetoothSPP.enable();
-                }
-                bluetoothSPP.send(String.valueOf(text2dots.dots_data_for_Atmega), true);
+
+
 
             }
         });

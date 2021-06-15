@@ -69,7 +69,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center_vertical"
-            android:text="GEP 11기"
+            android:text="점자 출력기"
             android:paddingLeft="10dp"
             android:textColor="@color/text"
             android:textSize="20sp" />
@@ -81,7 +81,7 @@
             android:focusable="true"
             android:gravity="top"
             android:paddingHorizontal="10dp"
-            android:text="안녕하세요. 동글이 운영진 KOREATECH GEP 11기 입니다. 동글이는 GEP Glocal Engineering Project 적정기술 프로젝트의 일환으로 시각장애인을 위한 점자라벨지 출력기를 개발한 것입니다."
+            android:text="이 제품은 시각장애인을 위한 점자라벨지 출력기를 개발한 것입니다."
             android:textColor="@color/text"
             android:textSize="12sp" />
     </LinearLayout>
@@ -115,7 +115,7 @@
             android:focusable="true"
             android:gravity="top"
             android:paddingHorizontal="10dp"
-            android:text="동글이 메일주소 0000@koreatech.ac.kr"
+            android:text="메일주소 0000@koreatech.ac.kr"
             android:textColor="@color/text"
             android:textSize="12sp" />
     </LinearLayout>

@@ -54,6 +54,53 @@ public class FairingFragment extends Fragment {
     }
 
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_fairing, container, false);
+
+        TextView bleBut = (TextView) v.findViewById(R.id.bleBut);
+
+        String content = bleBut.getText().toString();
+        SpannableString spannableString = new SpannableString(content);
+
+        String word = "블루투스";
+        int start = content.indexOf(word);
+        int end = start + word.length();
+
+        spannableString.setSpan(new StyleSpan(Typeface.BOLD), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(new RelativeSizeSpan(1.3f), start, end, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        bleBut.setText(spannableString);
+        bleBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bluetoothConnect();
+            }
+        });
+        return v;
+    }
+
+    public void bluetoothConnect() {
+
+        bluetoothAdapter = BluetoothAdapter.getDefaultAdapter(); // 블루투스 어댑터를 디폴트 어댑터로 설정
+        if (bluetoothAdapter == null) { // 디바이스가 블루투스를 지원하지 않을 때
+            Toast.makeText(getActivity().getApplicationContext(), "블루투스를 지원하지 않는 기기입니다.", Toast.LENGTH_LONG).show();
+
+        } else { // 디바이스가 블루투스를 지원 할 때
+
+            if (bluetoothAdapter.isEnabled()) { // 블루투스가 활성화 상태 (기기에 블루투스가 켜져있음)
+                selectBluetoothDevice(); // 블루투스 디바이스 선택 함수 호출
+
+            } else { // 블루투스가 비 활성화 상태 (기기에 블루투스가 꺼져있음)
+                // 블루투스를 활성화 하기 위한 다이얼로그 출력
+                Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                // 선택한 값이 onActivityResult 함수에서 콜백된다.
+                startActivityForResult(intent, REQUEST_ENABLE_BT);
+            }
+
+        }
+    }
+
     public void selectBluetoothDevice() {
         // 이미 페어링 되어있는 블루투스 기기를 찾습니다.
         devices = bluetoothAdapter.getBondedDevices();
@@ -121,7 +168,6 @@ public class FairingFragment extends Fragment {
 
             if (deviceName.equals(tempDevice.getName())) {
 
-
                 bluetoothDevice = tempDevice;
                 break;
             }
@@ -136,6 +182,7 @@ public class FairingFragment extends Fragment {
         // Rfcomm 채널을 통해 블루투스 디바이스와 통신하는 소켓 생성
 
         try {
+            BluetoothManager.getInstance().setBluetoothSocket(bluetoothSocket);
 
             bluetoothSocket = bluetoothDevice.createRfcommSocketToServiceRecord(uuid);
 
@@ -157,47 +204,5 @@ public class FairingFragment extends Fragment {
 
         }
 
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_fairing, container, false);
-
-        TextView bleBut = (TextView) v.findViewById(R.id.bleBut);
-
-        String content = bleBut.getText().toString();
-        SpannableString spannableString = new SpannableString(content);
-
-        String word = "블루투스";
-        int start = content.indexOf(word);
-        int end = start + word.length();
-
-        spannableString.setSpan(new StyleSpan(Typeface.BOLD), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        spannableString.setSpan(new RelativeSizeSpan(1.3f), start, end, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-        bleBut.setText(spannableString);
-        bleBut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                bluetoothAdapter = BluetoothAdapter.getDefaultAdapter(); // 블루투스 어댑터를 디폴트 어댑터로 설정
-                if (bluetoothAdapter == null) { // 디바이스가 블루투스를 지원하지 않을 때
-                    Toast.makeText(getActivity().getApplicationContext(), "블루투스를 지원하지 않는 핸드폰입니다.", Toast.LENGTH_LONG).show();
-
-                } else { // 디바이스가 블루투스를 지원 할 때
-
-                    if (bluetoothAdapter.isEnabled()) { // 블루투스가 활성화 상태 (기기에 블루투스가 켜져있음)
-                        selectBluetoothDevice(); // 블루투스 디바이스 선택 함수 호출
-
-                    } else { // 블루투스가 비 활성화 상태 (기기에 블루투스가 꺼져있음)
-                        // 블루투스를 활성화 하기 위한 다이얼로그 출력
-                        Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                        // 선택한 값이 onActivityResult 함수에서 콜백된다.
-                        startActivityForResult(intent, REQUEST_ENABLE_BT);
-                    }
-
-                }
-            }
-        });
-        return v;
     }
 }
